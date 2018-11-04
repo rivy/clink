@@ -121,9 +121,12 @@ workspace("clink")
         defines("_CRT_SECURE_NO_WARNINGS")
         defines("_CRT_NONSTDC_NO_WARNINGS")
 
-    configuration("gmake")
+    configuration("gmake*")
+        buildoptions { "-Wno-deprecated-declarations" }
+        defines("_CRT_SECURE_NO_WARNINGS")
         defines("__MSVCRT_VERSION__=0x0601")
         defines("WINVER=0x0502")
+        cppdialect("C++11")
 
 --------------------------------------------------------------------------------
 project("readline")
